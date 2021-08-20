@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} User Profile Page {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block content %}
+
+
+<section class="ftco-section ftco-no-pt ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="user-profile-side-bar sidebar-wrap">
+                    <div class="sidebar-box p-4 about text-center ftco-animate">
+                        <h2 class="heading mb-4">About Me</h2>
+                        <img src="{{ user.profile_picture }}" class="img-fluid" alt="Colorlib Template">
+                        <div class="text pt-4">
+                            <p>Hi! My name is <strong>{{ user.first_name }} {{ user.last_name }}</strong>,
+                                {{ user.bio }}</p>
+                        </div>
+                    </div>
+                    {% if request.user.is_authenticated and user == request.user  %}
+                    <div class="sidebar-box ftco-animate user-profile">
+
+                        <a href="{% url 'accounts:edit_profile' %}" class="btn btn-hover-color py-2">Edit Profile</a>
+
+                    </div>
+
+                    <div class="sidebar-box ftco-animate user-profile">
+                        <a href="{% url 'accounts:change_password' %}" class="btn btn-hover-color py-2">Change Password
+                        </a>
+                    </div>
+                    <div class="sidebar-box ftco-animate user-profile">
+                        <a href="{% url 'stories:add-story' %}" class="btn btn-hover-color py-2">Create story </a>
+                    </div>
+                    <div class="sidebar-box ftco-animate user-profile">
+                        <a href="{% url 'stories:add-recipe' %}" class="btn btn-hover-color py-2">Create recipe </a>
+                    </div>
+                    {% endif %}
+                    <div class="sidebar-box p-4 ftco-animate">
+                        <form action="#" class="search-form">
+                            <div class="form-group">
+                                <span class="icon icon-search"></span>
+                                <input type="text" class="form-control" placeholder="Search">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-md-12 heading-section ftco-animate">
+                        <h2 class="mb-4"><span>My stories and recipes</span></h2>
+                    </div>
+                </div>
+                <div class="recipe-list row">
+                    {% if request.user.is_authenticated and user == request.user  %}
+                    {% for user_recipe in user.recipes.all %}
+                    <div class="col-md-4 ftco-animate">
+                        <div id="recipe_id" style="display: none;">{{ user_recipe.slug }}</div>
+                        <div class="blog-entry">
+                            <a class="img-2">
+                                <div class="user-events__edit">
+                                    <a href="{% url 'stories:edit_recipe' user_recipe.id %}"><button
+                                        style="border: none; background: transparent; color: white;" type="button"
+                                        class="edit-event"><i class="fa fa-pencil"
+                                            aria-hidden="true"></i></button></a>
+                                    <button type="button" id="delete" class="delete-event"><i data-id="{{ user_recipe.id }}" class="fa fa-trash"
+                                            aria-hidden="true"></i></button>
+                                </div>
+
+                                <img src="{{ user_recipe.image.url }}" class="img-fluid" alt="{{ user_recipe.title }}">
+                            </a>
+                            <div class="text pt-3">
+                                <p class="meta d-flex">
+                                    <span class="pr-3">{{ user_recipe.category__title }}</span>
+                                    <span class="ml-auto pl-3">{{ user_recipe.created_at|date:"F d, Y" }}</span>
+                                </p>
+                                <h3><a href="#">{{ user_recipe.title }}</a></h3>
+                                <p class="mb-0">
+                                    <a href="{{ user_recipe.get_absolute_url }}" class="btn btn-black py-2">
+                                        Read More
+                                        <span class="icon-arrow_forward ml-4"></span>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="row">
+                    {% if request.user.is_authenticated and user == request.user  %}
+                    {% for user_story in user.stories.all %}
+                    <div class="col-md-4 ftco-animate">
+                        <div class="blog-entry">
+                            <a class="img-2">
+                                <div class="user-events__edit">
+                                    <button type="button" class="edit-event"><i class="fa fa-pencil"
+                                            aria-hidden="true"></i></button>
+                                    <button type="button" class="delete-event"><i class="fa fa-trash"
+                                            aria-hidden="true"></i></button>
+                                </div>
+                                <img src="{{ user_story.image.url }}" class="img-fluid" alt="{{ user_story.title }}">
+                            </a>
+                            <div class="text pt-3">
+                                <p class="meta d-flex">
+                                    <span class="pr-3">{{ user_story.category__title }}</span>
+                                    <span class="ml-auto pl-3">{{ user_story.created_at|date:"F d, Y" }}</span>
+                                </p>
+                                <h3><a href="#">{{ user_story.title }}</a></h3>
+                                <p class="mb-0">
+                                    <a href="{{ user_story.get_absolute_url }}" class="btn btn-black py-2">
+                                        Read More
+                                        <span class="icon-arrow_forward ml-4"></span>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'assets/assets/js/api-delete-recipe.js' %}"></script>
+{%endblock%}

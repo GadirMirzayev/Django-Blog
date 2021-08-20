@@ -1,0 +1,147 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-31 13:12+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: accounts/admin.py:14
+msgid "Personal info"
+msgstr "Shexsi melumatlar"
+
+#: accounts/admin.py:15
+msgid "Permissions"
+msgstr "Icazeler"
+
+#: accounts/admin.py:18
+msgid "Important dates"
+msgstr "Vacib tarixler"
+
+#: accounts/forms.py:12
+msgid "Password"
+msgstr "Shifre"
+
+#: accounts/forms.py:21
+msgid "Password confirmation"
+msgstr "Shifrenin tesdiqi"
+
+#: accounts/forms.py:26
+msgid "Enter the same password as before, for verification."
+msgstr "Daxil etdiyiniz shifreni tesdiq ucun tekrar daxil edin."
+
+#: accounts/models.py:9
+msgid "email address"
+msgstr ""
+
+#: accounts/tasks.py:18
+msgid "Please confirm your account"
+msgstr ""
+
+#: food_stories/settings.py:195
+msgid "English"
+msgstr "Ingilis dili"
+
+#: food_stories/settings.py:196
+msgid "Russian"
+msgstr "Rus dili"
+
+#: food_stories/settings.py:197
+msgid "Azerbaijani"
+msgstr "Azerbaycan dili"
+
+#: templates/about.html:14 templates/contact.html:13
+msgid "Home"
+msgstr "Ana Sehife"
+
+#: templates/about.html:15
+msgid "About us"
+msgstr "Haqqimizda"
+
+#: templates/about.html:40
+msgid "Daily visitors"
+msgstr "Gundelik ziyaretciler"
+
+#: templates/about.html:48 templates/edit-profile.html:19
+msgid "Stories"
+msgstr "Hekayeler"
+
+#: templates/about.html:56
+msgid "Recipes"
+msgstr "Reseptler"
+
+#: templates/about.html:64
+msgid "Users"
+msgstr "Istifadeciler"
+
+#: templates/change_password.html:3
+msgid "Change Password"
+msgstr "Shifre Deyishme"
+
+#: templates/change_password.html:16
+msgid "Change your password"
+msgstr "Shifrenizi deyishin"
+
+#: templates/change_password.html:17
+msgid "Please choose a new password to finish signing in."
+msgstr "Prosesi tamamlamaq ucun yeni shifre daxil edin."
+
+#: templates/contact.html:12
+msgid "Contact Us"
+msgstr "Bizimle elaqe saxlayin"
+
+#: templates/contact.html:14
+msgid "Contact us"
+msgstr "Bizimle elaqe"
+
+#: templates/contact.html:58
+msgid "Address"
+msgstr "Unvan"
+
+#: templates/contact.html:67
+msgid "Contact Number"
+msgstr "Elaqe nomresi"
+
+#: templates/contact.html:76
+msgid "Email Address"
+msgstr "E-poct unvani"
+
+#: templates/contact.html:85
+msgid "Website"
+msgstr ""
+
+#: templates/edit-profile.html:4
+msgid "Edit Account"
+msgstr "Profilde Deyishiklik Etmek"
+
+#: templates/index.html:17
+msgid "Featured Posts"
+msgstr "One cixan Paylashimlar"
+
+#: templates/index.html:40
+msgid "Read More"
+msgstr "Daha Etrafli"
+
+#: templates/index.html:55
+msgid "Recent Stories"
+msgstr "Son Hekayeler"
+
+#: templates/login.html:3
+msgid "Login"
+msgstr ""
+
+#: templates/register.html:4
+msgid "Register"
+msgstr ""

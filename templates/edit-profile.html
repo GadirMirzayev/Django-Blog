@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %} {% trans "Edit Account" %} {% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="ftco-section contact-section register">
+        <div class="container">
+            <div class="row block-9 justify-content-center">
+                <div class="col-md-6 order-md-last d-flex">
+                    <form action="" method="POST" enctype="multipart/form-data" class="bg-light p-5 contact-form">
+                        {{ form.non_field_errors }}
+                        {% csrf_token %}
+                        <a class="navbar-brand center" href="{% url 'stories:home' %}">{% trans "Stories" %}<span>.</span></a>
+                        {% for field in form %}
+                        <div class="form-group">
+                            {{ field }}
+                            {% for error in field.errors %}
+                                <li class="alert alert-danger">{{ error }}</li>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+
+                        <div class="form-group">
+                            <input type="submit" value="Edit Profile" class="btn btn-primary py-3 px-5">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %} 

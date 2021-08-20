@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block title %} {% trans 'Login' %} {% endblock %}
+
+{% block css %}
+     <link rel="stylesheet" href="http:////netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+{% endblock %}
+
+{% block content %}
+<section class="ftco-section contact-section register">
+    <div class="container">
+        <div class="row block-9 justify-content-center">
+            <div class="col-md-6 order-md-last d-flex">
+                <form method="POST" id="login-form" class="bg-light p-5 contact-form">
+                    <a class="navbar-brand center" href="#">Stories<span>.</span></a>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="username" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Login" class="btn btn-primary py-3 px-5">
+                        <a href="{% url 'accounts:reset_password' %}" class="forgot-password">Forgot password?</a>
+                    </div>
+                    <div class="form-group">
+                        <a href="#" class="">Don't have an account? Sign up</a>
+                    </div>
+                    <div class="form-group center">
+                        <a href="{% url 'social:begin' 'facebook' %}" class="social"><i class="fa fa-facebook social-login fb-color"></i></a>
+                        <a href="{% url 'social:begin' 'google-oauth2' %}" class="social"><i class="fa fa-google-plus social-login google-color"></i></a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%}
+{%block js%}
+    <script>
+          window.URLS['loginUrl'] = '{% url "api-login" %}'
+    </script>
+    <script src="{% static 'assets/assets/js/api-login.js' %}"></script>
+{%endblock%}

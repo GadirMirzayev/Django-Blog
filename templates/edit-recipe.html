@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% load static i18n %}
+
+​
+
+{% block content %}
+
+​
+
+<section class="ftco-section contact-section create-story">
+
+    ​
+
+    <div class="container">
+
+        ​
+
+        <div class="row block-9 justify-content-center">
+
+            ​
+
+            <div class="col-md-6 order-md-last d-flex">
+
+                ​
+
+                <form action="" method="POST" enctype="multipart/form-data" id="recipe-edit"
+                    class="bg-light p-5 recipe-form">
+
+                    <a class="navbar-brand center" href="#">Recipes<span>.</span></a><br>
+
+                    <input value="{{recipe.title}}" type="text" name="title" id="title" placeholder="Title"
+                        class="form-control mt-2 mb-4">
+
+                    <input value="{{recipe.short_description}}" type="text" name="short_description"
+                        id="short_description" placeholder="Short description" class="form-control mt-2 mb-4">
+
+                    <textarea value='{{recipe.description}}' name="description" id="description"
+                        placeholder="Description" class="form-control mt-2 mb-4" cols="30" rows="10"></textarea>
+
+                    <input value="{{recipe.image}}" type="file" id="image" name="image" class="mt-2 mb-4">
+
+                    <select value="{{recipe.category}}" name="category" id="category"
+                        class="form-control mt-2 mb-4"></select>
+
+                    <select value="{{recipe.tag}}" name="tag" id="tag" class="form-control mt-2 mb-4"
+                        multiple></select>
+
+                    <div class="form-group">
+
+                        <input type="submit" value="Edit" class="btn btn-primary py-3 px-5">
+
+                    </div>
+
+                </form>
+
+                ​
+
+            </div>
+
+            ​
+
+        </div>
+
+        ​
+
+    </div>
+
+    ​
+
+</section>
+
+​
+
+​{% endblock %}
+
+​
+
+{% block js%}
+
+​
+
+<script src="{% static 'assets/assets/js/api-edit-recipe.js' %}"></script>
+
+​
+
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+
+​
+
+<script>
+    window.URLS['updateRecipe'] = "{% url 'api:recipes_detail_api' '123' %}".replace('123', '{{recipe.id}}');
+</script>
+
+​
+
+{%endblock%}

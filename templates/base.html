@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+{% load static tags %}
+<html lang="en">
+
+<head>
+    <title>Stories - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'assets/css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+    <style>
+        /* The snackbar - position it at the bottom and in the middle of the screen */
+        #snackbar {
+            visibility: hidden;
+            /* Hidden by default. Visible on click */
+            min-width: 250px;
+            /* Set a default minimum width */
+            margin-left: -125px;
+            /* Divide value of min-width by 2 */
+            background-color: #333;
+            /* Black background color */
+            color: #fff;
+            /* White text color */
+            text-align: center;
+            /* Centered text */
+            border-radius: 2px;
+            /* Rounded borders */
+            padding: 16px;
+            /* Padding */
+            position: fixed;
+            /* Sit on top of the screen */
+            z-index: 1;
+            /* Add a z-index if needed */
+            left: 50%;
+            /* Center the snackbar */
+            bottom: 30px;
+            /* 30px from the bottom */
+        }        /* Show the snackbar when clicking on a button (class added with JavaScript) */
+        #snackbar.show {
+            visibility: visible;
+            /* Show the snackbar */
+            /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }        /* Animations to fade the snackbar in and out */
+        @-webkit-keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }        @-webkit-keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }        @keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+    </style>
+    {%block css%}
+
+    {%endblock%}
+</head>
+
+
+<body>
+
+    {% include 'includes/navbar.html' %}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% block content %}
+
+    {% endblock %}
+
+    <section class="ftco-subscribe ftco-section bg-light">
+        <div class="overlay">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-8 text-wrap text-center heading-section ftco-animate">
+                        <h2 class="mb-4"><span>Subcribe to our Newsletter</span></h2>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It
+                            is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                        <div class="row d-flex justify-content-center mt-4 mb-4">
+                            <div class="col-md-8">
+                                <form action="#" method="post" id="subscribe-section" class="subscribe-form">
+                                    <div class="form-group d-flex">
+                                        <input type="text" class="form-control" name="email" placeholder="Enter email address">
+                                        <input type="submit" value="Subscribe" class="submit px-3">
+                                    </div>
+                                    <div id="snackbar"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    {% include 'includes/footer.html' %}
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen">
+        <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+    </div>
+    <script>
+        window.URLS = {
+            subscribeUrl: '{% url "api:subscribe" %}'
+        }
+    </script>
+    
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-migrate-3.0.1.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'assets/js/aos.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.animateNumber.min.js' %}"></script>
+    <script src="{% static 'assets/js/scrollax.min.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="{% static 'assets/js/google-map.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/assets/js/api-requests.js' %}"></script>
+    <script src="{% static 'assets/assets/js/api-logout.js' %}"></script>
+    {% block js %}
+
+    {% endblock %}
+</body>
+</html>

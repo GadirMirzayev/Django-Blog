@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans 'Register' %}  {% endblock %}
+
+
+{% block content %}
+
+<section class="ftco-section contact-section register">
+        <div class="container">
+            <div class="row block-9 justify-content-center">
+                <div class="col-md-6 order-md-last d-flex">
+                    <form action="" method="post" enctype="multipart/form-data" class="bg-light p-5 contact-form">
+                        <a class="navbar-brand center" href="#">Stories<span>.</span></a>
+                        {{ form.non_field_errors }}
+                        {% csrf_token %}
+                        {% for field in form %}
+                        <div class="form-group">
+                            {{ field }}
+                            {{ field.help_text }}
+                            {% for error in field.errors %}
+                                <li class="alert-danger alert">{{ error }}</li>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+
+                        <div class="form-group">
+                            <input type="submit" value="Register" class="btn btn-primary py-3 px-5">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %} 

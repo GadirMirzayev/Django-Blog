@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block content %}
+
+    
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'assets/images/bg_4.jpg' %});">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-end justify-content-center">
+                <div class="col-md-9 ftco-animate pb-5 text-center">
+                    <h1 class="mb-3 bread">About Us</h1>
+                    <p class="breadcrumbs">
+                        <span class="mr-2"><a href="index.html">{% trans "Home" %}<i class="ion-ios-arrow-forward"></i></a></span> 
+                        <span>{% trans "About us" %}<i class="ion-ios-arrow-forward"></i></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ftco-counter ftco-section ftco-no-pt ftco-no-pb img" id="section-counter">
+        <div class="container">
+            <div class="row d-flex">
+                <div class="col-md-6 d-flex">
+                    <div class="img d-flex align-self-stretch" style="background-image:url({% static 'assets/images/about.jpg'%});"></div>
+                </div>
+                <div class="col-md-6 pl-md-5 py-5">
+                    <div class="row justify-content-start pb-3">
+                        <div class="col-md-12 heading-section ftco-animate">
+                            <h2 class="mb-4"><span>{{title}}</span></h2>
+                            <p>{{description_texts}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18 text-center py-5 bg-light mb-4">
+                                <div class="text">
+                                    <strong class="number" data-number="{{daily_visitors}}">0</strong>
+                                    <span>{% trans "Daily visitors" %}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18 text-center py-5 bg-light mb-4">
+                                <div class="text">
+                                    <strong class="number" data-number="{{stories}}">0</strong>
+                                    <span>{% trans "Stories" %}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18 text-center py-5 bg-light mb-4">
+                                <div class="text">
+                                    <strong class="number" data-number="{{recipes}}">0</strong>
+                                    <span>{% trans "Recipes" %}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18 text-center py-5 bg-light mb-4">
+                                <div class="text">
+                                    <strong class="number" data-number="{{users_count}}">0</strong>
+                                    <span>{% trans "Users" %}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
